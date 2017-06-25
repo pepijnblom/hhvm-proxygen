@@ -14,12 +14,8 @@ RUN apt-get update -y && \
 
 RUN curl -sS https://getcomposer.org/installer | hhvm --php -- --install-dir=/usr/local/bin --filename=composer
 
-# VOLUME /var/www
-# RUN mkdir /var/www
 ADD default/www/phpinfo.php /var/www/phpinfo.php
 
-# COPY default/hhvm/server.ini /etc/hhvm/server.ini
-# COPY default/hhvm/php.ini /etc/hhvm/php.ini
 ADD default/hhvm/server.ini /etc/hhvm/server.ini
 RUN touch /etc/hhvm/site.ini
 
@@ -27,20 +23,11 @@ RUN mkdir -p /etc/service/hhvm
 COPY services/hhvm.sh /etc/service/hhvm/run
 RUN chmod +x /etc/service/hhvm/run
 
-# Install app
-# RUN rm -rf /var/www 
-# RUN mkdir -p /var/www/pihole/pihole
-# RUN mkdir -p /var/www/pihole/admin
-# COPY default/www/phpinfo.php /var/www/pihole
-# RUN chown -R www-data:www-data /var/www
-
 #RUN cd /var/www/public && composer install
 
 RUN mkdir -p /etc/my_init.d
 # COPY ./services/once.sh /etc/my_init.d/once.sh
 # RUN chmod +x /etc/my_init.d/once.sh
-
-
 
 EXPOSE 8080
 
