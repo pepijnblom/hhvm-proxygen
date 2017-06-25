@@ -1,4 +1,4 @@
-FROM ubuntu:zesty
+FROM phusion/baseimage:0.9.22
 
 RUN apt-get update -y && \ 
     apt-get install -y net-tools curl software-properties-common --no-install-recommends && \
