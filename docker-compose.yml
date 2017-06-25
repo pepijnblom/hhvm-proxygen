@@ -1,0 +1,10 @@
+version: "3"
+services:
+  hhvm:
+    build: .
+    # environment:
+    volumes:
+      - "/var/www/public:/var/www/public"
+    ports:
+      - "80:80/tcp"
+    restart: always
