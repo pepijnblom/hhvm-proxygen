@@ -1,9 +1,9 @@
-FROM ubuntu:rolling
+FROM ubuntu:zesty
 
 RUN apt-get update -y && \ 
     apt-get install -y net-tools curl software-properties-common --no-install-recommends && \
     apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0x5a16e7281be7a449 && \
-    add-apt-repository "deb http://mirror.yourwebhoster.eu/hhvm/ubuntu xenial edge" && \
+    add-apt-repository "deb http://mirror.yourwebhoster.eu/hhvm/ubuntu xenial main" && \
     apt-get update -y && \
     apt-get install hhvm -y --no-install-recommends && \
     rm -rf /var/cache/apt/archives /var/lib/apt/lists/* && \
